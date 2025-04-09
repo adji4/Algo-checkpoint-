@@ -1,0 +1,44 @@
+ALGORITHME problème 1
+fonction sommeElementsDistincts(ensemble1, ensemble2) {
+    let somme = 0;
+
+    // Ajouter les éléments distincts de l'ensemble 1
+    for (let i = 0; i < ensemble1.length; i++) {
+        if (!ensemble2.includes(ensemble1[i])) {  // Vérifie si l'élément de ensemble1 est dans ensemble2
+            somme += ensemble1[i];
+        }
+    }
+
+    // Ajouter les éléments distincts de l'ensemble 2
+    for (let i = 0; i < ensemble2.length; i++) {
+        if (!ensemble1.includes(ensemble2[i])) {  // Vérifie si l'élément de ensemble2 est dans ensemble1
+            somme += ensemble2[i];
+        }
+    }
+
+    return somme;
+}
+
+Problème 2
+fonction dot_product(v1, v2) {
+    let ps = 0;
+    for (let i = 0; i < v1.length; i++) {
+        ps += v1[i] * v2[i];  // Ajouter le produit des éléments correspondants
+    }
+    return ps;  // Retourner le produit scalaire
+}
+
+fonction testOrthogonality(n, vecteurs) {
+    for (let i = 0; i < n; i++) {
+        let v1 = vecteurs[i][0];  // Premier vecteur
+        let v2 = vecteurs[i][1];  // Deuxième vecteur
+        
+        let produit = dot_product(v1, v2);
+        
+        if (produit === 0) {
+            console.log("Les vecteurs", v1, "et", v2, "sont orthogonaux.");
+        } else {
+            console.log("Les vecteurs", v1, "et", v2, "ne sont pas orthogonaux.");
+        }
+    }
+}
